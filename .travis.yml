@@ -1,8 +1,9 @@
-dist: trusty
-sudo: false
+language: python
 
-language: cpp
+python:
 
-script:
-  - cmake .
-  - cmake --build . 
+  - "2.7"
+
+script: 
+
+  - python hello.py
