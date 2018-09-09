@@ -70,7 +70,7 @@ MAINTAINER E.GARRIGA
       make t_coffee
       cp t_coffee /bin/t_coffee380c7 
       cd /
-      rm tcoffee380c7
+      rm -rf tcoffee380c7
 
     ##commit 7 sept 39e160bb6c4b1e041515f9f4e42e79b687f55572
       git clone https://github.com/cbcrg/tcoffee.git tcoffeef55572
@@ -80,7 +80,7 @@ MAINTAINER E.GARRIGA
       make t_coffee
       cp t_coffee /bin/t_coffeef55572
       cd /
-      rm tcoffeef55572
+      rm -rf tcoffeef55572
       
       ##commit  15 jun    f5a3274df02cdbac8b6cd50bcb03d872a56e4a53
       git clone https://github.com/cbcrg/tcoffee.git tcoffee4a53
@@ -90,7 +90,7 @@ MAINTAINER E.GARRIGA
       make t_coffee
       cp t_coffee /bin/t_coffee4a53
       cd /
-      rm tcoffee4a53
+      rm -rf tcoffee4a53
 
     ##commit 15 may 3c3d66e9797f32beaff56cf3d06522b8dd65460f 
       git clone https://github.com/cbcrg/tcoffee.git tcoffee5460f
@@ -100,5 +100,5 @@ MAINTAINER E.GARRIGA
       make t_coffee
       cp t_coffee /bin/t_coffee5460f
       cd /
-      rm tcoffee5460f
+      rm -rf tcoffee5460f
 
