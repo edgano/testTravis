@@ -69,3 +69,11 @@ MAINTAINER E.GARRIGA
       make t_coffee
       cp t_coffee /bin/t_coffee380c7 
       cd /
+    ##commit 7 sept 39e160bb6c4b1e041515f9f4e42e79b687f55572
+      git clone https://github.com/cbcrg/tcoffee.git tcoffeef55572
+      cd tcoffeef55572
+      git checkout 39e160bb6c4b1e041515f9f4e42e79b687f55572
+      cd compile
+      make t_coffee
+      cp t_coffee /bin/t_coffeef55572
+      cd /
