@@ -141,12 +141,3 @@ rm -rf tcoffee3fc9
       cp t_coffee /bin/t_coffeefac2f
       cd /
 rm -rf t_coffee8f8c
-    ##commit  20 Jan    dfe0a51f546ded3e08e384e21d24bab2854f8f8c
-      git clone https://github.com/cbcrg/tcoffee.git tcoffee8f8c
-      cd tcoffee8f8c
-      git checkout dfe0a51f546ded3e08e384e21d24bab2854f8f8c
-      cd compile
-      make t_coffee
-      cp t_coffee /bin/t_coffee8f8c
-      cd /
-rm -rf t_coffee8f8c
