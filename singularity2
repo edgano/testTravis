@@ -62,14 +62,13 @@ MAINTAINER E.GARRIGA
   rm /mafft-7.397-with-extensions-src.tgz
   cd /
 
-         ##commit  22 Jan    d78b1159c2afc168ff915dda9649afe7ecefac2f
-      git clone https://github.com/cbcrg/tcoffee.git tcoffeefac2f
-      cd tcoffeefac2f
-      git checkout d78b1159c2afc168ff915dda9649afe7ecefac2f
+    ##commit  20 Jan    dfe0a51f546ded3e08e384e21d24bab2854f8f8c
+      git clone https://github.com/cbcrg/tcoffee.git tcoffee8f8c
+      cd tcoffee8f8c
+      git checkout dfe0a51f546ded3e08e384e21d24bab2854f8f8c
       cd compile
       make t_coffee
-      cp t_coffee /bin/t_coffeefac2f
+      cp t_coffee /bin/t_coffee8f8c
       cd /
-      rm -rf tcoffeefac2f
 
 
