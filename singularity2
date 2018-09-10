@@ -1,0 +1,82 @@
+Bootstrap:docker  
+From:debian:jessie
+
+%labels
+MAINTAINER E.GARRIGA
+
+%environment
+  CACHE_4_TCOFFEE='${TMPDIR:-/tmp}/.tcoffee/cache'
+  LOCKDIR_4_TCOFFEE='${TMPDIR:-/tmp}/.tcoffee/lock'
+  TMP_4_TCOFFEE='${TMPDIR:-/tmp}/.tcoffee/tmp'
+  PYTHONPATH=$PYTHONPATH:/home/lib/python2.7/site-packages/
+
+%post
+  apt-get update
+  apt-get install -y --no-install-recommends ed less vim-tiny wget git
+  apt-get install -y --no-install-recommends python build-essential cmake curl libargtable2-0
+  apt-get install -y --no-install-recommends python-biopython python-numpy ruby python-setuptools
+  apt-get install -y --no-install-recommends default-jdk libpng-dev
+
+
+##
+# install argtable
+##
+  wget http://prdownloads.sourceforge.net/argtable/argtable2-13.tar.gz
+  tar -zxf argtable2-13.tar.gz 
+  cd argtable2-13
+  ./configure
+  make
+  make install
+  rm /argtable2-13.tar.gz
+  cd /
+
+##
+# install clustal omega
+##
+  wget http://www.clustal.org/omega/clustal-omega-1.2.4.tar.gz
+  tar -zxf clustal-omega-1.2.4.tar.gz
+  cd clustal-omega-1.2.4
+  ./configure
+  make
+  make install
+  rm /clustal-omega-1.2.4.tar.gz
+  cd /
+
+##
+# install mafft
+##
+  wget https://mafft.cbrc.jp/alignment/software/mafft-7.397-with-extensions-src.tgz
+  tar xfvz mafft-7.397-with-extensions-src.tgz
+  cd mafft-7.397-with-extensions/core/
+  sed -i "s/PREFIX = \/usr\/local/PREFIX = \/mafft/g" Makefile 
+  sed -i "s/BINDIR = \$(PREFIX)\/bin/BINDIR = \/mafft\/bin/g" Makefile
+  make clean
+  make
+  make install
+  wget http://mafft.cbrc.jp/alignment/software/newick2mafft.rb
+  chmod +x newick2mafft.rb
+  export "PATH=$PATH:/mafft/bin"
+  export MAFFT_BINARIES=""
+  cp /mafft/bin/* /bin/.
+  mv /mafft-7.397-with-extensions /mafft
+  rm /mafft-7.397-with-extensions-src.tgz
+  cd /
+
+         ##commit  22 Jan    d78b1159c2afc168ff915dda9649afe7ecefac2f
+      git clone https://github.com/cbcrg/tcoffee.git tcoffeefac2f
+      cd tcoffeefac2f
+      git checkout d78b1159c2afc168ff915dda9649afe7ecefac2f
+      cd compile
+      make t_coffee
+      cp t_coffee /bin/t_coffeefac2f
+      cd /
+      rm -rf tcoffeefac2f
+
+    ##commit  20 Jan    dfe0a51f546ded3e08e384e21d24bab2854f8f8c
+      git clone https://github.com/cbcrg/tcoffee.git tcoffee8f8c
+      cd tcoffee8f8c
+      git checkout dfe0a51f546ded3e08e384e21d24bab2854f8f8c
+      cd compile
+      make t_coffee
+      cp t_coffee /bin/t_coffee8f8c
+      cd /
